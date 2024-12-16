@@ -1,0 +1,55 @@
+--[[
+
+                 ___                                                  
+                (   )                                                 
+        .--.     | |_       .---.   ___ .-.     ___ .-.     ___  ___  
+      /  _  \   (   __)    / .-, \ (   )   \   (   )   \   (   )(   ) 
+     . .' `. ;   | |      (__) ; |  | ' .-. ;   | ' .-. ;   | |  | |  
+     | '   | |   | | ___    .'`  |  |  / (___)  |  / (___)  | |  | |  
+     _\_`.(___)  | |(   )  / .'| |  | |         | |         | '  | |  
+    (   ). '.    | | | |  | /  | |  | |         | |         '  `-' |  
+     | |  `\ |   | ' | |  ; |  ; |  | |         | |          `.__. |  
+     ; '._,' '   ' `-' ;  ' `-'  |  | |         | |          ___ | |  
+      '.___.'     `.__.   `.__.'_. (___)       (___)        (   )' |  
+                                                             ; `-' '  
+                                                              .__.'   
+    ~ discord.gg/luau
+    ~ github.com/starry-proj
+
+    <-------------------->
+    
+      Starry is an all-powerful script hub developed in TypeScript with Roblox-TS.
+      
+      Alongside being the best script for all supported games, Starry is relatively bug-free.
+      
+      Starry brought to you by Suno & Zade ❤️
+
+    <-------------------->
+
+    To load the Stable, and bug-free edition of Starry,
+    
+    change it to `loadVersion(1)`.
+
+]]
+
+local function loadVersion(branch: number)
+  local releaseIds = {[0] = "219566b932eb38b9819542b23fa68ab2", [1] = "6844e6723348ce4f4560c63a422dd65b"}
+  local branch = releaseIds[branch]
+  
+  if not branch then -- 404
+      return
+  end
+  
+  local success, response = pcall(function()
+      loadstring(game:HttpGet(`https://api.luarmor.net/files/v3/loaders/{branch}.lua`))()
+  end)
+  
+  if not success then
+      print(`Starry loader failure!`)
+      warn(`{response}\n`)
+      
+      print("Report this issue into our Discord server: discord.gg/luau")
+  end
+end
+
+loadVersion(1)
