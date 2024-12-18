@@ -1,3 +1,4 @@
+
 --[[
 
                  ___                                                  
@@ -60,7 +61,7 @@ local function loadVersion(verified: boolean)
             return loadstring(game:HttpGet("https://cdn.luarmor.net/verified/Starry.lua"))()
         end
         
-        loadstring(game:HttpGet(`api.luarmor.net/files/v3/loaders/{unverified}.lua`))()
+        loadstring(game:HttpGet(`https://api.luarmor.net/files/v3/loaders/{unverified}.lua`))()
     end)
 
     task.wait(0.5)
@@ -80,11 +81,14 @@ local function loadVersion(verified: boolean)
                 luarmorIssue = true
             end
         end
+
+        print(luarmorIssue)
     end
     
     if not success or luarmorIssue then
-        localPlayer:Kick(`\n\nReport this error in our server,\ndiscord.gg/luau\n\n{response}\n\nKeep in mind, your executor may not be supported\n`)
+        localPlayer:Kick(`\n\nReport this error in our server,\ndiscord.gg/luau\n\n{response}\n`)
     end
 end
 
-loadVersion(true)
+loadVersion(false) -- false: Load the Unverified script
+                   -- true:  Load the Verified, protection guaranteed script
